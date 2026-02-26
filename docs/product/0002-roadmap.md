@@ -16,12 +16,12 @@ The MVP is delivered in three milestones. Each milestone produces a complete, us
 
 | ID | Name | Milestone | Priority | Spec |
 |---|---|---|---|---|
-| F1 | Menu Capture | M1 | P0 | [features/F1-menu-capture.md](features/F1-menu-capture.md) |
-| F2 | Digitization & Translation | M1 | P0 | [features/F2-digitization-translation.md](features/F2-digitization-translation.md) |
-| F3 | Structured Menu Display | M1 | P0 | [features/F3-menu-display.md](features/F3-menu-display.md) |
-| F4 | Personalized Recommendations | M2 | P1 | [features/F4-recommendations.md](features/F4-recommendations.md) |
-| F5 | Beverage Pairing | M2 | P1 | [features/F5-beverage-pairing.md](features/F5-beverage-pairing.md) |
-| F6 | Session History | M3 | P2 | [features/F6-session-history.md](features/F6-session-history.md) |
+| F1 | Menu Capture | M1 | P0 | [features/f1-menu-capture.md](features/f1-menu-capture.md) |
+| F2 | Digitization & Translation | M1 | P0 | [features/f2-digitization-translation.md](features/f2-digitization-translation.md) |
+| F3 | Structured Menu Display | M1 | P0 | [features/f3-menu-display.md](features/f3-menu-display.md) |
+| F4 | Personalized Recommendations | M2 | P1 | [features/f4-recommendations.md](features/f4-recommendations.md) |
+| F5 | Beverage Pairing | M2 | P1 | [features/f5-beverage-pairing.md](features/f5-beverage-pairing.md) |
+| F6 | Session History | M3 | P2 | [features/f6-session-history.md](features/f6-session-history.md) |
 
 ---
 
