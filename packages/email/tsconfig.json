@@ -1,8 +1,0 @@
-{
-  "extends": ["@repo/ts-config/react"],
-  "compilerOptions": {
-    "paths": {
-      "@repo/email/*": ["./src/*"]
-    }
-  }
-}

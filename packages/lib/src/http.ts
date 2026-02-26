@@ -4,7 +4,6 @@ export function apiSignatureMessage(path: string, timestamp: string): string {
 
 export const apiHeaders = {
   acceptLanguage: 'Accept-Language',
-  accessToken: 'X-Access-Token',
   version: 'X-Version',
   timeZone: 'X-Time-Zone',
   timestamp: 'X-TIMESTAMP',

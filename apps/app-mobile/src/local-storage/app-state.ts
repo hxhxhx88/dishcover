@@ -10,10 +10,7 @@ const KEY_STORE = `app-state`
 // - https://docs.expo.dev/versions/latest/sdk/securestore/#ios
 const KEY_HAS_LAUNCHED = 'has-launched'
 
-const defaultState: AppState = {
-  accessToken: undefined,
-  refreshToken: undefined,
-}
+const defaultState: AppState = {}
 
 export async function saveAppState(state: AppState): Promise<void> {
   return secureStore.setItemAsync(KEY_STORE, JSON.stringify(state))

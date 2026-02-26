@@ -8,9 +8,6 @@ interface AppState {
   values: AppStateValues
   updateAppState: (state: AppStateValues) => void
   resetAppState: (state: AppStateValues) => void
-
-  setAccessToken: (token: string | undefined) => void
-  setRefreshToken: (token: string | undefined) => void
 }
 
 export function createStore(initialState: AppStateValues): UseBoundStore<StoreApi<AppState>> {
@@ -26,18 +23,6 @@ export function createStore(initialState: AppStateValues): UseBoundStore<StoreAp
         resetAppState(newState) {
           set((s) => {
             s.values = newState
-          })
-        },
-
-        setAccessToken(token: string | undefined) {
-          set((s) => {
-            s.values.accessToken = token
-          })
-        },
-
-        setRefreshToken(token: string | undefined) {
-          set((s) => {
-            s.values.refreshToken = token
           })
         },
       }

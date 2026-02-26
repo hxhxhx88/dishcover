@@ -8,11 +8,9 @@ import { useRouter } from 'expo-router'
 import { useCallback, useRef } from 'react'
 import { toast } from 'sonner-native'
 import { catchError } from '@/lib/error'
-import { useSignOut } from '@/lib/hooks'
 
 export function ReactQueryProvider({ children }: { children: ReactNode }): JSX.Element {
   const { t } = useLingui()
-  const { signOut } = useSignOut()
 
   const router = useRouter()
 
@@ -25,12 +23,6 @@ export function ReactQueryProvider({ children }: { children: ReactNode }): JSX.E
             toast.warning(bad.message)
             return
           }
-        }
-
-        if (error.status === 401) {
-          toast.error(t`Session expired. Please log in again.`)
-          signOut().catch(catchError)
-          return
         }
 
         if (error.status === 426) {
@@ -56,7 +48,7 @@ export function ReactQueryProvider({ children }: { children: ReactNode }): JSX.E
 
       toast.error(t`Something is wrong. Please try again later.`)
     },
-    [router, signOut, t],
+    [router, t],
   )
 
   const clientRef = useRef(
