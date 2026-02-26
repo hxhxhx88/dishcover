@@ -1,0 +1,36 @@
+{
+  "name": "app-next",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack -p 3000",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "typegen": "next typegen"
+  },
+  "dependencies": {
+    "@lingui/core": "5.9.0",
+    "@lingui/react": "5.9.0",
+    "@repo/api": "workspace:*",
+    "@repo/i18n": "workspace:*",
+    "@repo/lib": "workspace:*",
+    "@repo/metadata": "workspace:*",
+    "@repo/ts-config": "workspace:*",
+    "@repo/ui-web": "workspace:*",
+    "hono": "^4.11.8",
+    "negotiator": "^1.0.0",
+    "next": "16.1.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0"
+  },
+  "devDependencies": {
+    "@lingui/loader": "5.9.0",
+    "@lingui/swc-plugin": "5.11.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/negotiator": "^0.6.4",
+    "@types/node": "^20",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0"
+  }
+}

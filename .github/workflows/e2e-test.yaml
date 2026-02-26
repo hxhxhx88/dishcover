@@ -1,0 +1,138 @@
+name: End-to-end test
+
+on:
+  workflow_dispatch:
+    inputs:
+      api_origin:
+        description: API origin URL
+        required: true
+        type: string
+      expo_ios_build_fingerprint:
+        description: Expo iOS build fingerprint
+        required: false
+        type: string
+      expo_android_build_fingerprint:
+        description: Expo Android build fingerprint
+        required: false
+        type: string
+
+concurrency:
+  group: e2e-${{ github.sha }}
+  cancel-in-progress: true
+
+env:
+  API_ORIGIN: ${{ inputs.api_origin }}
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+  VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+  EAS_BUILD_PROJECT_ID: ${{ secrets.EAS_PROJECT_ID_APP }}
+  NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+  NEON_PROJECT_ID_TEST: ${{ secrets.NEON_PROJECT_ID_TEST }}
+  DEV_VERIFICATION_PRIVATE_CODE: ${{ secrets.DEV_VERIFICATION_PRIVATE_CODE }}
+  DEV_DEVICE_IOS: iPhone 16
+  DEV_DEVICE_ANDROID: test # Default AVD name created by reactivecircus/android-emulator-runner.
+
+jobs:
+  ios:
+    # The default GitHub runner is very poor. Pick a powerful runner.
+    # - https://docs.github.com/en/actions/how-tos/manage-runners/larger-runners/use-larger-runners?platform=mac#available-macos-larger-runners
+    runs-on: macos-15-xlarge
+
+    if: ${{ inputs.expo_ios_build_fingerprint != '' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.16.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: pnpm
+
+      - name: Install Task
+        uses: arduino/setup-task@v2
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download iOS build from Expo
+        working-directory: apps/app-mobile
+        run: |
+          npm install -g eas-cli
+          BUILD_PATH=$(eas build:download --fingerprint ${{ inputs.expo_ios_build_fingerprint }} -p ios --json --non-interactive | jq -r '.path')
+          mkdir -p ios/build/Build/Products/Release-iphonesimulator
+          mv "$BUILD_PATH" ios/build/Build/Products/Release-iphonesimulator/DishCover.app
+
+      - name: Run E2E tests
+        run: task e2e:ios
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: webdriver-screenshots-ios
+          path: e2e/screenshots/
+
+  android:
+    # Run Android emulators on the macOS runner. Make sure to pick a runner with Intel arch to avoid nested virtualization.
+    # - https://docs.github.com/en/actions/how-tos/manage-runners/larger-runners/use-larger-runners?platform=mac#available-macos-larger-runners
+    runs-on: macos-15-large
+
+    if: ${{ inputs.expo_android_build_fingerprint != '' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.16.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: pnpm
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install Task
+        uses: arduino/setup-task@v2
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download Android build from Expo
+        working-directory: apps/app-mobile
+        run: |
+          npm install -g eas-cli
+          BUILD_PATH=$(eas build:download --fingerprint ${{ inputs.expo_android_build_fingerprint }} -p android --json --non-interactive | jq -r '.path')
+          mkdir -p android/app/build/outputs/apk/release
+          mv "$BUILD_PATH" android/app/build/outputs/apk/release/app-release.apk
+
+      - name: Run E2E tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          disk-size: 2048M
+          profile: pixel_6
+          script: task e2e:android
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: webdriver-screenshots-android
+          path: e2e/screenshots/

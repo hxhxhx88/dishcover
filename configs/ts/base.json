@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "skipLibCheck": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": ["@repo/ts-config/react"],
+  "compilerOptions": {
+    "jsx": "react-native",
+    "paths": {
+      "react": ["./node_modules/@types/react"],
+      "react/jsx-runtime": ["./node_modules/@types/react/jsx-runtime"],
+      "react/jsx-dev-runtime": ["./node_modules/@types/react/jsx-dev-runtime"],
+      "@repo/ui-mobile/*": ["./src/*"]
+    },
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["react"]
+  }
+}

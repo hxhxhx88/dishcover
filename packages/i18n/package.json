@@ -1,0 +1,19 @@
+{
+  "name": "@repo/i18n",
+  "exports": {
+    "./*": "./src/*.ts",
+    "./messages/*": "./locales/*/messages.po"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "extract": "lingui extract --clean"
+  },
+  "dependencies": {
+    "@lingui/core": "5.9.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@lingui/cli": "5.9.0",
+    "@repo/ts-config": "workspace:*"
+  }
+}

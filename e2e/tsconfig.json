@@ -1,0 +1,10 @@
+{
+  "extends": ["@repo/ts-config/server"],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["@wdio/types", "@wdio/globals/types", "@wdio/mocha-framework"]
+  },
+  "include": ["src", "wdio.*.conf.ts"]
+}

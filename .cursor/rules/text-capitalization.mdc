@@ -1,0 +1,8 @@
+---
+description: Rules about text capitalization.
+globs: **/*.{md,mdx,ts,tsx,js,jsx}
+alwaysApply: true
+---
+
+You must follow the rule defined in:
+- @docs/development/0002-rules/text-capitalization.md

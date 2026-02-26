@@ -1,0 +1,23 @@
+{
+  "packageManager": "pnpm@10.16.1",
+  "scripts": {
+    "dev": "turbo run dev",
+    "lint": "eslint . --fix",
+    "typecheck": "turbo typecheck",
+    "typegen": "turbo typegen",
+    "build": "turbo build --force",
+    "gen:api": "orval"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^7.3.0",
+    "@eslint-react/eslint-plugin": "^2.11.2",
+    "@next/eslint-plugin-next": "^16.1.6",
+    "eslint": "^9.39.2",
+    "eslint-plugin-format": "^1.4.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.0",
+    "orval": "^8.2.0",
+    "turbo": "^2.8.3",
+    "typescript": "~5.9.3"
+  }
+}

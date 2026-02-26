@@ -1,0 +1,28 @@
+version: '3'
+
+tasks:
+  devices:
+    desc: List iOS devices for development
+    cmds:
+      - xctrace list devices
+
+  emulator:
+    desc: Launch the iOS emulator
+    cmds:
+      - |
+        echo "Looking for iPhone 16 simulator..."
+        # Find the UDID of the standard iPhone 16 (ignoring Pro/Plus/Max variants if possible)
+        UDID=$(xcrun simctl list devices | grep -E "iPhone 16 \(" | awk -F '[()]' '{print $2}' | head -n 1)
+
+        if [ -z "$UDID" ]; then
+          echo "Error: iPhone 16 simulator not found!"
+          xcrun simctl list devices
+          exit 1
+        fi
+
+        echo "Booting simulator with UDID: $UDID"
+        xcrun simctl boot "$UDID"
+
+        echo "Waiting for simulator to finish booting..."
+        xcrun simctl bootstatus "$UDID"
+        echo "Simulator is ready!"

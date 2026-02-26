@@ -1,0 +1,163 @@
+version: '3'
+
+env:
+  EAS_BUILD_PROJECT_ID: '{{.EAS_PROJECT_ID_APP}}'
+
+tasks:
+  prebuild:
+    desc: Regenerate native ios and android projects
+    cmds:
+      - rm -rf ios
+      - rm -rf android
+      - pnpm prebuild
+    dir: apps/app-mobile
+
+  doctor:
+    desc: Run Expo doctor to check project configuration
+    cmds:
+      - npx expo-doctor
+    dir: apps/app-mobile
+
+  upgrade:
+    desc: Check and fix Expo package versions
+    cmds:
+      - npx expo install --check
+    dir: apps/app-mobile
+
+  # task app-mobile:install -- [dependencies]
+  install:
+    desc: Install Expo-compatible dependencies (task app-mobile:install -- [dependencies])
+    cmds:
+      - pnpm expo install {{ .CLI_ARGS }}
+    dir: apps/app-mobile
+
+  android:
+    desc: Run app on Android device (requires DEV_DEVICE_ANDROID)
+    preconditions:
+      - sh: '[ -n "$DEV_DEVICE_ANDROID" ]'
+    cmds:
+      - pnpm android -- --device "{{ .DEV_DEVICE_ANDROID }}"
+    dir: apps/app-mobile
+
+  ios:
+    desc: Run app on iOS device (requires DEV_DEVICE_IOS)
+    preconditions:
+      - sh: '[ -n "$DEV_DEVICE_IOS" ]'
+    cmds:
+      - pnpm ios -- --device "{{ .DEV_DEVICE_IOS }}"
+    dir: apps/app-mobile
+
+  open:ios:
+    desc: Open the iOS project in Xcode for local processing
+    cmds:
+      - xed ios
+    dir: apps/app-mobile
+
+  open:android:
+    desc: Open the Android project in Android Studio for local processing
+    cmds:
+      - open -a "Android Studio" android
+    dir: apps/app-mobile
+
+  build:ios:
+    desc: Build iOS .ipa remotely with EAS
+    cmds:
+      - task: internal:build:remote
+        vars:
+          PLATFORM: ios
+          ARGS: '{{.CLI_ARGS}}'
+          INTERACTIVE: '{{.INTERACTIVE}}'
+
+  build:ios:app:
+    desc: Build iOS .app remotely with EAS
+    cmds:
+      - eas build --platform ios --profile preview --no-wait --non-interactive {{.CLI_ARGS}}
+    dir: apps/app-mobile
+
+  build:ios:local:
+    desc: Build iOS .app locally
+    cmds:
+      - task: internal:build:ios:local
+        vars: {MODE: Release}
+
+  build:android:
+    desc: Build Android .aab remotely with EAS
+    cmds:
+      - task: internal:build:remote
+        vars:
+          PLATFORM: android
+          ARGS: '{{.CLI_ARGS}}'
+          INTERACTIVE: '{{.INTERACTIVE}}'
+
+  build:android:apk:
+    desc: Build the Android .apk remotely
+    cmds:
+      - eas build --platform android --profile preview --no-wait --non-interactive {{.CLI_ARGS}}
+    dir: apps/app-mobile
+
+  build:android:apk:local:
+    desc: Build the Android .apk locally
+    cmds:
+      - task: internal:build:android:apk
+        vars: {MODE: release}
+
+  # internal tasks
+  internal:build:remote:
+    desc: Internal task for EAS remote build
+    internal: true
+    dir: apps/app-mobile
+    cmds:
+      - eas build
+        --platform {{.PLATFORM}}
+        --profile production
+        --no-wait
+        --auto-submit
+        {{if .INTERACTIVE}}{{else}}--non-interactive{{end}}
+        {{.ARGS}}
+
+  internal:build:android:apk:local:
+    internal: true
+    dir: apps/app-mobile/android
+    requires:
+      vars: [MODE]
+    vars:
+      GRADLE_TASK: 'app:assemble{{.MODE | title}}'
+    cmds:
+      - ./gradlew {{.GRADLE_TASK}}
+      - cmd: |
+          APK_PATH="app/build/outputs/apk/{{.MODE}}/app-{{.MODE}}.apk"
+          if [ -f "$APK_PATH" ]; then
+            echo "✅ APK has been successfully built!"
+            echo "📦 APK location: $APK_PATH"
+          else
+            echo "❌ APK build failed. File not found at $APK_PATH"
+            exit 1
+          fi
+        silent: true
+
+  internal:build:ios:local:
+    internal: true
+    dir: apps/app-mobile/ios
+    requires:
+      vars: [MODE]
+    vars:
+      APP_NAME:
+        sh: ls -d *.xcworkspace | head -n 1 | sed 's/\.xcworkspace//'
+      GRADLE_TASK: 'app:assemble{{.MODE | title}}'
+    cmds:
+      - xcodebuild
+        -workspace {{.APP_NAME}}.xcworkspace
+        -scheme {{.APP_NAME}}
+        -configuration {{.MODE}}
+        -sdk iphonesimulator
+        -derivedDataPath build
+      - cmd: |
+          APP_PATH="build/Build/Products/{{.MODE}}-iphonesimulator/{{.APP_NAME}}.app"
+          if [ -d "$APP_PATH" ]; then
+            echo "✅ iOS app has been successfully built!"
+            echo "📦 iOS app location: $APP_PATH"
+          else
+            echo "❌ iOS app build failed. File not found at $APP_PATH"
+            exit 1
+          fi
+        silent: true

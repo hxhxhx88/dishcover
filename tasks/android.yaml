@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  devices:
+    desc: List Android device models for development
+    cmds:
+      - ./emulator -list-avds
+    dir: '{{ .ANDROID_HOME }}/emulator'
+
+  emulator:
+    desc: Launch the Android emulator
+    cmds:
+      - ./emulator -avd {{ .DEV_DEVICE_ANDROID }} -wipe-data
+    dir: '{{ .ANDROID_HOME }}/emulator'

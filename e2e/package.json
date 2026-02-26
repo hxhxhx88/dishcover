@@ -1,0 +1,36 @@
+{
+  "name": "e2e",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test:android": "wdio run wdio.android.conf.ts",
+    "test:ios": "wdio run wdio.ios.conf.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@neondatabase/api-client": "^2.6.0",
+    "@paralleldrive/cuid2": "^3.3.0",
+    "@repo/db": "workspace:*",
+    "@repo/lib": "workspace:*",
+    "@repo/metadata": "workspace:*",
+    "@t3-oss/env-core": "^0.13.10",
+    "axios": "^1.13.5",
+    "p-retry": "^7.1.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@repo/ts-config": "workspace:*",
+    "@wdio/appium-service": "^9.24.0",
+    "@wdio/cli": "^9.24.0",
+    "@wdio/globals": "^9.23.0",
+    "@wdio/local-runner": "^9.24.0",
+    "@wdio/logger": "^9.18.0",
+    "@wdio/mocha-framework": "^9.24.0",
+    "@wdio/spec-reporter": "^9.24.0",
+    "@wdio/types": "^9.24.0",
+    "appium": "^3.2.0",
+    "appium-uiautomator2-driver": "^6.8.1",
+    "appium-xcuitest-driver": "^10.21.2",
+    "prisma": "^7.3.0"
+  }
+}

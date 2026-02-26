@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  android:
+    desc: Run Android E2E test
+    cmds:
+      - pnpm test:android {{ .CLI_ARGS }}
+    dir: e2e
+
+  ios:
+    desc: Run iOS E2E test
+    cmds:
+      - pnpm test:ios {{ .CLI_ARGS }}
+    dir: e2e

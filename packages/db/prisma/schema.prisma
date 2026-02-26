@@ -1,0 +1,48 @@
+generator client {
+  provider        = "prisma-client"
+  output          = "../generated/prisma"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Verification {
+  id        String   @id @default(cuid()) // this will be the public code
+  createdAt DateTime @default(now()) @map(name: "created_at") @db.Timestamptz
+  updatedAt DateTime @default(now()) @map(name: "updated_at") @db.Timestamptz
+
+  privateCode String   @map(name: "private_code")
+  payloadJson String   @map(name: "payload") // packages/lib/src/schemas/verification-payload.ts
+  expiresAt   DateTime @map(name: "expires_at") @db.Timestamptz
+
+  @@map(name: "verifications")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map(name: "created_at") @db.Timestamptz
+  updatedAt DateTime @default(now()) @map(name: "updated_at") @db.Timestamptz
+
+  email String @unique @map(name: "email")
+
+  sessions Session[]
+
+  @@map(name: "users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map(name: "created_at") @db.Timestamptz
+  updatedAt DateTime @default(now()) @map(name: "updated_at") @db.Timestamptz
+
+  userId String @map(name: "user_id")
+
+  expiresAt DateTime @map(name: "expires_at") @db.Timestamptz
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map(name: "sessions")
+}

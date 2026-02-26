@@ -1,0 +1,8 @@
+---
+description: Enforce development workflow
+globs: **/*
+alwaysApply: true
+---
+
+You must follow the rule outlined in the following document during and after coding:
+- @docs/development/0001-workflows/development.md

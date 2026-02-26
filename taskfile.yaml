@@ -1,0 +1,91 @@
+version: '3'
+
+dotenv: [.env.local]
+
+vars:
+  COMMIT_HASH:
+    sh: git rev-parse --short=7 HEAD 2>/dev/null || true
+
+env:
+  # For Expo Android building
+  ANDROID_HOME: '{{ .HOME }}/Library/Android/sdk/'
+  # Expo
+  EXPO_PUBLIC_API_ORIGIN: '{{ .API_ORIGIN }}'
+  EXPO_PUBLIC_API_SECRET: '{{ .API_SECRET }}'
+
+includes:
+  db: tasks/db.yaml
+  ui: tasks/ui.yaml
+  i18n: tasks/i18n.yaml
+  ios: tasks/ios.yaml
+  android: tasks/android.yaml
+  app-mobile: tasks/app-mobile.yaml
+  e2e: tasks/e2e.yaml
+
+tasks:
+  dev:
+    desc: Start the development server
+    cmds:
+      - pnpm dev {{ .CLI_ARGS }}
+
+  typegen:
+    desc: Generate TypeScript types
+    cmds:
+      - pnpm typegen {{ .CLI_ARGS }}
+
+  typecheck:
+    desc: Run TypeScript type checking
+    deps:
+      - typegen
+    cmds:
+      - pnpm typecheck {{ .CLI_ARGS }}
+
+  build:
+    desc: Build the project
+    deps:
+      - check
+    cmds:
+      - pnpm build
+
+  gen:api:
+    desc: Generate API client code
+    cmds:
+      - pnpm gen:api
+
+  # allow running pnpm commands with environment variables
+  # task pnpm -- ...
+  pnpm:
+    desc: Run pnpm commands with environment variables (task pnpm -- ...)
+    cmds:
+      - pnpm {{ .CLI_ARGS }}
+
+  ip:
+    desc: Print local IP address (en0)
+    cmds:
+      - ipconfig getifaddr en0
+
+  check:
+    desc: Run lint and preconditions
+    deps:
+      - typecheck
+      - i18n
+    preconditions:
+      - sh: grep "[[:digit:]]rem" packages/ui-web/src/primitives/*.tsx && exit 1 || exit 0
+        msg: some web UI primitives are using rem units
+      - sh: grep "[[:digit:]]rem" packages/ui-mobile/src/primitives/*.tsx && exit 1 || exit 0
+        msg: some mobile UI primitives are using rem units
+      - sh: |
+          for file in packages/i18n/locales/*/*.po; do
+            if sed '1,2d' "$file" | grep -q 'msgstr ""'; then
+              exit 1
+            fi
+          done
+          exit 0
+        msg: some translations are missing
+    cmds:
+      - pnpm lint {{ .CLI_ARGS }}
+
+  npkill:
+    desc: Find and remove node_modules directories
+    cmds:
+      - npx npkill

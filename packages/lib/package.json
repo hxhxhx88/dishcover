@@ -1,0 +1,19 @@
+{
+  "name": "@repo/lib",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.13.10",
+    "culori": "^4.0.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@repo/ts-config": "workspace:*",
+    "@types/culori": "^4.0.1",
+    "@types/node": "^20.19.32"
+  }
+}

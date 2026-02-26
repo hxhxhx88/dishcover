@@ -1,0 +1,12 @@
+---
+description: Master guide for contributing to the codebase.
+globs: **/*
+alwaysApply: true
+---
+
+- The documentation in `@docs` is the single source of truth.
+- The `@docs` folder is organized by topic. You are expected to find the relevant file yourself.
+- Before implementing any feature or fix, you MUST:
+  - Read `@CONTRIBUTING.md` first.
+  - Find and read relevant doc in `@doc`.
+  - Follow the guide strictly.

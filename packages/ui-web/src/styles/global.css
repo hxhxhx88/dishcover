@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@import '@repo/ui-config/global.css';
+
+/*
+  At the time of writing, the shadcn sidebar has a bug to incorrectly render items as active.
+  The following import is a to fix this issue.
+  - https://github.com/shadcn-ui/ui/pull/9067#issuecomment-3661646445
+*/
+@import 'shadcn/tailwind.css';
+@source "..";

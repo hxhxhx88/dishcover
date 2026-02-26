@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-vega",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "../../configs/ui/global.css",
+    "baseColor": "stone",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "aliases": {
+    "components": "@repo/ui-mobile",
+    "utils": "@repo/ui-mobile/lib/utils",
+    "ui": "@repo/ui-mobile/primitives",
+    "lib": "@repo/ui-mobile/lib",
+    "hooks": "@repo/ui-mobile/hooks"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle"
+}

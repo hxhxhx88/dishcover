@@ -1,0 +1,8 @@
+---
+description: Rules about bullet points lists.
+globs: **/*.{md,mdx,ts,tsx,js,jsx}
+alwaysApply: true
+---
+
+You must follow the rule defined in:
+- @docs/development/0002-rules/bullet-points.md

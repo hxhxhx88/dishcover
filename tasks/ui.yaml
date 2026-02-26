@@ -1,0 +1,16 @@
+version: '3'
+
+tasks:
+  # task ui:web -- [component]
+  web:
+    desc: Add shadcn component to ui-web (task ui:web -- [component])
+    cmds:
+      - pnpm dlx shadcn@latest add {{ .CLI_ARGS }}
+    dir: packages/ui-web
+
+  # task ui:mobile -- [component]
+  mobile:
+    desc: Add React Native Reusables component to ui-mobile (task ui:mobile -- [component])
+    cmds:
+      - pnpm dlx @react-native-reusables/cli@latest add {{ .CLI_ARGS }}
+    dir: packages/ui-mobile

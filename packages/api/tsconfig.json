@@ -1,0 +1,9 @@
+{
+  "extends": ["@repo/ts-config/server"],
+  "compilerOptions": {
+    "jsx": "preserve",
+    "paths": {
+      "@repo/api/*": ["./src/*"]
+    }
+  }
+}
