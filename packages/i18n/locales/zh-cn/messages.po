@@ -13,14 +13,68 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+msgid "1. Open your device Settings"
+msgstr "1. 打开设备设置"
+
+msgid "2. Find DishCover in the app list"
+msgstr "2. 在应用列表中找到 DishCover"
+
+msgid "3. Enable Camera access"
+msgstr "3. 启用相机权限"
+
+msgid "3. Enable Photo Library access"
+msgstr "3. 启用照片图库权限"
+
+msgid "Add More"
+msgstr "添加更多"
+
+msgid "Camera Access Required"
+msgstr "需要相机权限"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Failed to submit menu"
+msgstr "提交菜单失败"
+
+msgid "Go Back"
+msgstr "返回"
+
 msgid "Hello"
 msgstr "你好"
+
+msgid "Import from Gallery"
+msgstr "从相册导入"
+
+msgid "Maximum pages reached"
+msgstr "已达最大页数"
+
+msgid "Menu submitted successfully"
+msgstr "菜单提交成功"
 
 msgid "No internet connection."
 msgstr "没有网络连接。"
 
+msgid "No pages captured yet"
+msgstr "尚未拍摄任何页面"
+
+msgid "Open Settings"
+msgstr "打开设置"
+
+msgid "Photo Library Access Required"
+msgstr "需要照片图库权限"
+
+msgid "Scan Menu"
+msgstr "扫描菜单"
+
 msgid "Something is wrong. Please try again later."
 msgstr "发生了未知错误。请稍后再试。"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Success"
+msgstr "成功"
 
 msgid "This version of the app is outdated. Please update to continue using the app with the latest features."
 msgstr "该版本的应用已过期。请更新后继续使用最新的功能。"

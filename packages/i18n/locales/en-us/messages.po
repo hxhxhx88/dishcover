@@ -13,14 +13,68 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+msgid "1. Open your device Settings"
+msgstr "1. Open your device Settings"
+
+msgid "2. Find DishCover in the app list"
+msgstr "2. Find DishCover in the app list"
+
+msgid "3. Enable Camera access"
+msgstr "3. Enable Camera access"
+
+msgid "3. Enable Photo Library access"
+msgstr "3. Enable Photo Library access"
+
+msgid "Add More"
+msgstr "Add More"
+
+msgid "Camera Access Required"
+msgstr "Camera Access Required"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Failed to submit menu"
+msgstr "Failed to submit menu"
+
+msgid "Go Back"
+msgstr "Go Back"
+
 msgid "Hello"
 msgstr "Hello"
+
+msgid "Import from Gallery"
+msgstr "Import from Gallery"
+
+msgid "Maximum pages reached"
+msgstr "Maximum pages reached"
+
+msgid "Menu submitted successfully"
+msgstr "Menu submitted successfully"
 
 msgid "No internet connection."
 msgstr "No internet connection."
 
+msgid "No pages captured yet"
+msgstr "No pages captured yet"
+
+msgid "Open Settings"
+msgstr "Open Settings"
+
+msgid "Photo Library Access Required"
+msgstr "Photo Library Access Required"
+
+msgid "Scan Menu"
+msgstr "Scan Menu"
+
 msgid "Something is wrong. Please try again later."
 msgstr "Something is wrong. Please try again later."
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Success"
+msgstr "Success"
 
 msgid "This version of the app is outdated. Please update to continue using the app with the latest features."
 msgstr "This version of the app is outdated. Please update to continue using the app with the latest features."
