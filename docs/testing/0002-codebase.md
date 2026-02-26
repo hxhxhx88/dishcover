@@ -14,8 +14,8 @@ e2e
 │   ├── pages                   # Page objects for each screen (one class per screen).
 │   │   ├── *.page.ts
 │   │   └── ...
-│   └── specs                   # Folder for all test cases, grouped by scenario (e.g., `dishes`).
-│       ├── dishes
+│   └── specs                   # Folder for all test cases, grouped by scenario (e.g., `auth`).
+│       ├── auth
 │       │   └── *.e2e.ts        # Test case files.
 │       └── ...
 ├── wdio.android.conf.ts        # Android configuration.
