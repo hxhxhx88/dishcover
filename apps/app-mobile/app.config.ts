@@ -22,6 +22,7 @@ export default function config({ config: defineConfig }: ConfigContext): ExpoCon
     ios: {
       supportsTablet: false,
       bundleIdentifier: APP_PACKAGE_NAME,
+      buildNumber: '20',
       infoPlist: {
         // avoid manual configuration in App Store Connect before the app can be tested
         ITSAppUsesNonExemptEncryption: false,
