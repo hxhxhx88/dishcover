@@ -6,6 +6,7 @@ export default function config({ config: defineConfig }: ConfigContext): ExpoCon
     ...defineConfig,
     name: APP_NAME,
     slug: APP_SLUG,
+    owner: 'lingopear',
     scheme: APP_SLUG,
     version: '1.0.0',
     orientation: 'portrait',
@@ -47,7 +48,7 @@ export default function config({ config: defineConfig }: ConfigContext): ExpoCon
       eas: {
         // `EAS_BUILD_PROJECT_ID` is a build-in environment variable of EAS.
         // - https://docs.expo.dev/eas/environment-variables/usage/#built-in-environment-variables
-        projectId: '5d7b8715-ea18-42ac-9bf2-e277ca793ea1',
+        projectId: '82d87dec-c42f-4912-9496-a0dac11dff95',
       },
     },
   }
