@@ -9,6 +9,13 @@ For comprehensive guidelines and further information, please refer to the `docs`
 - `testing`: Testing methodology and instructions
 - `deployment`: Deployment guides and infrastructure
 
+## Workflow
+
+- Add feature spec in `docs/product` for new features.
+- Add technical plan in `docs/engineering` for non-trivial ones.
+- Run quality check frequently during development.
+- Add e2e tests after implementation for critical features and bugs.
+
 ## Repository shape
 
 - This is a pnpm monorepo with Turborepo (`pnpm-workspace.yaml`, `turbo.json`).
