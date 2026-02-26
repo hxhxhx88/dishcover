@@ -17,8 +17,6 @@
 
 - Domain and product logic.
 - API contracts, schema validation, and data integrity checks.
-- Authentication and authorization semantics.
-- OTP lifecycle rules, such as generation, expiry, and one-time usage.
 - Error handling and observability hooks relevant to business behavior.
 
 ## What belongs in deployment infrastructure
