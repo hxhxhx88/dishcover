@@ -1,14 +1,8 @@
-# F3 — Structured Menu Display
-
-**Milestone:** M1  
-**Priority:** P0  
-**Depends on:** F2
-
----
+# Structured Menu Display
 
 ## Summary
 
-The digitized menu is rendered in a clean, scrollable, categorized layout. The user can browse sections, search for items, and see recommendation badges (populated by F4). This screen is the central view of the app.
+The digitized menu is rendered in a clean, scrollable, categorized layout. The user can browse sections, search for items, and see recommendation badges when personalized recommendations are active. This screen is the central view of the app.
 
 ---
 
@@ -28,7 +22,7 @@ _As a user who just scanned a 60-item Spanish menu, I want to browse it by secti
   - Original name (secondary, smaller, muted)
   - Translated description (if available)
   - Price (if available)
-  - Recommendation badge (if F4 has surfaced this item)
+  - Recommendation badge (when recommendations are active)
 
 ### Search
 - A search bar is persistently visible at the top of the menu.
@@ -47,8 +41,8 @@ _As a user who just scanned a 60-item Spanish menu, I want to browse it by secti
 
 ### Navigation
 - From the menu screen, user can navigate to:
-  - Preference input (F4)
-  - Beverage pairing for a selected item (F5)
+  - Preference input for personalized recommendations
+  - Beverage pairing for a selected item (when a drinks section is detected)
   - Back to capture to start a new scan
 
 ---
@@ -62,13 +56,13 @@ _As a user who just scanned a 60-item Spanish menu, I want to browse it by secti
 | Missing price | Price field hidden (not shown as blank) |
 | Missing description | Description field hidden |
 | Search with no results | "No items match your search" placeholder shown |
-| Section names in a language other than device language | Translate section names as part of F2 output |
+| Section names in a language other than device language | Translated as part of the digitization output |
 
 ---
 
 ## Technical Notes
 
 - Implemented in `apps/app-mobile` using React Native + NativeWind.
-- The menu payload received from F2 is the direct data source; no additional API calls at render time.
-- The "For You" section surfaced by F4 recommendations is rendered as a pinned section at the top of the menu screen (not a separate screen).
-- Recommendation badge state is held in local React state; re-runs when preferences change (F4).
+- The menu payload from digitization is the direct data source; no additional API calls at render time.
+- The "For You" section (populated when recommendations are active) is rendered as a pinned section at the top of the menu screen.
+- Recommendation badge state is held in local React state and updates whenever preferences are re-submitted.

@@ -1,10 +1,4 @@
-# F2 — Digitization & Translation
-
-**Milestone:** M1  
-**Priority:** P0  
-**Depends on:** F1
-
----
+# Digitization & Translation
 
 ## Summary
 
@@ -27,7 +21,7 @@ _As a user who photographed a French menu, I want the app to automatically extra
   - Translated name (in device display language)
   - Description (translated, if present on the menu)
   - Price (as printed, if visible)
-- Items with no detectable section are grouped under a catch-all (see F3).
+- Items with no detectable section are grouped under a catch-all (see [0004-menu-display.md](0004-menu-display.md)).
 
 ### Translation
 - Output language matches the device's system locale by default.
@@ -64,8 +58,8 @@ _As a user who photographed a French menu, I want the app to automatically extra
 
 ## Technical Notes
 
-- AI provider: Gemini Vision (primary). Provider should be abstracted behind an interface to allow future swap (e.g. GPT-4o).
-- The structured output format should be requested via the model's JSON mode / structured output feature (not parsed from free text).
+- AI provider: Gemini Vision (primary). The provider is abstracted behind an interface to allow future swaps (e.g. GPT-4o).
+- The structured output format is requested via the model's JSON mode / structured output feature — not parsed from free text.
 - All AI calls are made from the API backend (`packages/api`), not directly from the client, to avoid exposing API keys.
 - The response schema lives in `packages/lib` and is shared between the API and mobile client.
-- The digitized menu payload produced here is the canonical data model consumed by F3, F4, F5, and F6.
+- The digitized menu payload is the canonical data model consumed by all downstream features: menu display, recommendations, beverage pairing, and session history.

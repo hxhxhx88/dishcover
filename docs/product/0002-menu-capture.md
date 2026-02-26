@@ -1,10 +1,4 @@
-# F1 — Menu Capture
-
-**Milestone:** M1  
-**Priority:** P0  
-**Depends on:** —
-
----
+# Menu Capture
 
 ## Summary
 
@@ -50,7 +44,7 @@ _As a diner at a foreign restaurant, I want to photograph all pages of the menu 
 | User cancels mid-capture | Returns to previous state; no session started |
 | Photo library permission denied | Prompt to open Settings; camera-only path remains available |
 | Camera permission denied | Prompt to open Settings; library-only path remains available |
-| Image in an unsupported format (e.g. HEIF variant) | Silently convert on-device or show a clear error |
+| Image in an unsupported format | Silently convert on-device or show a clear error |
 
 ---
 
@@ -59,4 +53,4 @@ _As a diner at a foreign restaurant, I want to photograph all pages of the menu 
 - Image capture: `expo-camera` or `expo-image-picker` (React Native / Expo).
 - Compression: resize to max 2048px on the long edge before encoding as JPEG at 85% quality.
 - No server interaction at this stage; captured images are held in local state until the user submits for processing.
-- The capture session state (list of image URIs) is passed directly to F2 on submission.
+- The collected image URIs are passed to the digitization step on submission.
