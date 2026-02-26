@@ -15,6 +15,7 @@ _As a diner at a foreign restaurant, I want to photograph all pages of the menu 
 ## Acceptance Criteria
 
 ### Capture flow
+
 - User can launch the camera directly from the main screen to photograph a menu page.
 - User can import one or more images from the photo library.
 - After each capture or import, the user is shown a preview of the page and can add more pages or proceed.
@@ -23,14 +24,17 @@ _As a diner at a foreign restaurant, I want to photograph all pages of the menu 
 - Minimum: 1 page. Maximum: 10 pages per session.
 
 ### Image quality
+
 - If a captured image is detected as blurry or too dark, a quality warning is shown and the user is offered a retake.
 - Low-quality images can still be submitted after the warning (user override).
 - Supported input formats: JPEG, HEIC, PNG.
 
 ### Non-menu input
+
 - If the submitted image(s) clearly contain no menu content, the app returns a graceful error: _"This doesn't look like a menu. Try photographing the menu pages."_
 
 ### Performance
+
 - Image selection and preview must feel instantaneous (no processing at capture stage).
 - Image compression applied before upload to keep payloads manageable (target: ≤ 1.5 MB per page after compression, with no visible quality loss for typical menu photography).
 
@@ -38,13 +42,13 @@ _As a diner at a foreign restaurant, I want to photograph all pages of the menu 
 
 ## Edge Cases
 
-| Scenario | Expected behavior |
-|---|---|
-| User adds 10 pages and tries to add more | Add button is disabled; informational message shown |
-| User cancels mid-capture | Returns to previous state; no session started |
-| Photo library permission denied | Prompt to open Settings; camera-only path remains available |
-| Camera permission denied | Prompt to open Settings; library-only path remains available |
-| Image in an unsupported format | Silently convert on-device or show a clear error |
+| Scenario                                 | Expected behavior                                            |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| User adds 10 pages and tries to add more | Add button is disabled; informational message shown          |
+| User cancels mid-capture                 | Returns to previous state; no session started                |
+| Photo library permission denied          | Prompt to open Settings; camera-only path remains available  |
+| Camera permission denied                 | Prompt to open Settings; library-only path remains available |
+| Image in an unsupported format           | Silently convert on-device or show a clear error             |
 
 ---
 

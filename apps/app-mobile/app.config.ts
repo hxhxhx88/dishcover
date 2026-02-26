@@ -24,6 +24,8 @@ export default function config({ config: defineConfig }: ConfigContext): ExpoCon
       infoPlist: {
         // avoid manual configuration in App Store Connect before the app can be tested
         ITSAppUsesNonExemptEncryption: false,
+        NSCameraUsageDescription: 'DishCover needs camera access to photograph menus.',
+        NSPhotoLibraryUsageDescription: 'DishCover needs photo library access to import menu photos.',
       },
     },
     android: {
@@ -41,13 +43,13 @@ export default function config({ config: defineConfig }: ConfigContext): ExpoCon
         { supportedLocales: ['en', 'zh'] },
       ],
       'expo-secure-store',
+      ['expo-camera', { cameraPermission: 'DishCover needs camera access to photograph menus.' }],
+      ['expo-image-picker', { photosPermission: 'DishCover needs photo library access to import menu photos.' }],
       ['expo-router'],
     ],
     extra: {
       eas: {
-        // `EAS_BUILD_PROJECT_ID` is a build-in environment variable of EAS.
-        // - https://docs.expo.dev/eas/environment-variables/usage/#built-in-environment-variables
-        projectId: process.env.EAS_BUILD_PROJECT_ID,
+        projectId: '5d7b8715-ea18-42ac-9bf2-e277ca793ea1',
       },
     },
   }

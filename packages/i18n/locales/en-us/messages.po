@@ -13,62 +13,14 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-msgid "{privateCode} is your {APP_NAME} sign-in code"
-msgstr "{privateCode} is your {APP_NAME} sign-in code"
-
-msgid "A new code has been sent to {email}."
-msgstr "A new code has been sent to {email}."
-
-msgid "By continuing, you agree to our <0><1>Terms of service</1></0> and <2><3>Privacy policy</3></2>."
-msgstr "By continuing, you agree to our <0><1>Terms of service</1></0> and <2><3>Privacy policy</3></2>."
-
-msgid "Continue"
-msgstr "Continue"
-
-msgid "Did not receive the code?"
-msgstr "Did not receive the code?"
-
-msgid "Email"
-msgstr "Email"
-
-msgid "Enter your email"
-msgstr "Enter your email"
-
 msgid "Hello"
 msgstr "Hello"
 
 msgid "No internet connection."
 msgstr "No internet connection."
 
-msgid "OTP verification"
-msgstr "OTP verification"
-
-msgid "Please enter a valid email."
-msgstr "Please enter a valid email."
-
-msgid "Please enter your email."
-msgstr "Please enter your email."
-
-msgid "Resend code"
-msgstr "Resend code"
-
-msgid "Session expired. Please log in again."
-msgstr "Session expired. Please log in again."
-
-msgid "Sign in"
-msgstr "Sign in"
-
-msgid "Sign out"
-msgstr "Sign out"
-
 msgid "Something is wrong. Please try again later."
 msgstr "Something is wrong. Please try again later."
-
-msgid "The code is incorrect or expired."
-msgstr "The code is incorrect or expired."
-
-msgid "This code will only be valid for the next {expireHours} hours."
-msgstr "This code will only be valid for the next {expireHours} hours."
 
 msgid "This version of the app is outdated. Please update to continue using the app with the latest features."
 msgstr "This version of the app is outdated. Please update to continue using the app with the latest features."
@@ -78,12 +30,3 @@ msgstr "Update now"
 
 msgid "Update required"
 msgstr "Update required"
-
-msgid "We sent a {digitsCount}-digit code to your email"
-msgstr "We sent a {digitsCount}-digit code to your email"
-
-msgid "Welcome!"
-msgstr "Welcome!"
-
-msgid "Your {APP_NAME} sign-in code"
-msgstr "Your {APP_NAME} sign-in code"

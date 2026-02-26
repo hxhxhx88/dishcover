@@ -15,11 +15,13 @@ _As someone ordering a ribeye steak, I want to know which wine from this restaur
 ## Acceptance Criteria
 
 ### Detection
+
 - The presence of a drinks or wine section is determined at digitization time.
 - If no drinks section is detected, the pairing feature is entirely hidden (no empty states, no prompts).
 - If a drinks section is detected, a "Pair with a drink" indicator is shown on food item cards.
 
 ### Pairing flow
+
 - User taps a food item card.
 - A pairing panel (sheet or modal) opens showing:
   - The selected dish name
@@ -28,11 +30,13 @@ _As someone ordering a ribeye steak, I want to know which wine from this restaur
 - Applies to wine, beer, cocktails, and non-alcoholic options — any item in the detected drinks section.
 
 ### Performance
+
 - Pairing results are fetched on demand (per dish tap), not pre-computed for all items.
 - Target response time: under 8 seconds per pairing request.
 - A loading state is shown while pairing is being fetched.
 
 ### Privacy
+
 - Only the selected dish and the drinks section data are sent to the AI for each pairing call.
 - No user identity or preference data is included in pairing requests.
 
@@ -40,14 +44,14 @@ _As someone ordering a ribeye steak, I want to know which wine from this restaur
 
 ## Edge Cases
 
-| Scenario | Expected behavior |
-|---|---|
+| Scenario                                                | Expected behavior                                                           |
+| ------------------------------------------------------- | --------------------------------------------------------------------------- |
 | Drinks menu and food menu captured in separate sessions | Not supported in MVP; inform user both must be captured in the same session |
-| Drinks section detected but has fewer than 3 items | Return as many matches as available (1 or 2) |
-| Very large wine list (100+ items) | AI selects top 3 matches; no pagination needed |
-| Non-alcoholic-only drinks menu | Feature works identically; "Pair with a drink" label unchanged |
-| User taps a drinks item (not a food item) | Pairing indicator not shown on drink items |
-| AI returns no confident pairing | Panel shows: "No strong pairing found for this dish" |
+| Drinks section detected but has fewer than 3 items      | Return as many matches as available (1 or 2)                                |
+| Very large wine list (100+ items)                       | AI selects top 3 matches; no pagination needed                              |
+| Non-alcoholic-only drinks menu                          | Feature works identically; "Pair with a drink" label unchanged              |
+| User taps a drinks item (not a food item)               | Pairing indicator not shown on drink items                                  |
+| AI returns no confident pairing                         | Panel shows: "No strong pairing found for this dish"                        |
 
 ---
 

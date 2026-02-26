@@ -15,6 +15,7 @@ _As a vegetarian visiting a Japanese restaurant, I want to tell the app my diet 
 ## Acceptance Criteria
 
 ### Preference input
+
 - A "Get Recommendations" prompt is visible on the menu screen.
 - User can enter free-text preferences (e.g. "first time here, love spicy food, avoid shellfish").
 - Quick-select dietary tags are shown alongside the text field:
@@ -23,6 +24,7 @@ _As a vegetarian visiting a Japanese restaurant, I want to tell the app my diet 
 - Preferences are optional; if skipped, the AI attempts a generic "popular / chef's picks" recommendation.
 
 ### Recommendations output
+
 - AI returns 3–5 recommended dishes from the current menu.
 - Each recommendation includes:
   - Dish name (as shown in the menu)
@@ -31,10 +33,12 @@ _As a vegetarian visiting a Japanese restaurant, I want to tell the app my diet 
 - Recommended items are also marked with a badge inline in their section.
 
 ### Updating preferences
+
 - User can edit preferences and re-submit to generate new recommendations.
 - Previous recommendation badges are cleared and replaced on re-run.
 
 ### Privacy
+
 - Preferences are included in the AI request payload alongside the menu data.
 - Preferences are not stored on-device or on the server beyond the duration of the inference call.
 
@@ -42,13 +46,13 @@ _As a vegetarian visiting a Japanese restaurant, I want to tell the app my diet 
 
 ## Edge Cases
 
-| Scenario | Expected behavior |
-|---|---|
-| User skips preferences | AI attempts generic "popular" picks; if no confident result, "For You" section is hidden |
-| Contradictory preferences ("vegan" + "love steak") | AI surfaces best partial matches; result labeled "Best matches for your preferences" |
-| Menu has no items matching preferences | Show message: "No close matches found — here are the closest options" with top 3 |
-| Very short menu (< 5 items) | Recommend from what's available; no artificial padding |
-| AI fails to return structured recommendations | Error shown in the "For You" section; rest of menu unaffected |
+| Scenario                                           | Expected behavior                                                                        |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| User skips preferences                             | AI attempts generic "popular" picks; if no confident result, "For You" section is hidden |
+| Contradictory preferences ("vegan" + "love steak") | AI surfaces best partial matches; result labeled "Best matches for your preferences"     |
+| Menu has no items matching preferences             | Show message: "No close matches found — here are the closest options" with top 3         |
+| Very short menu (< 5 items)                        | Recommend from what's available; no artificial padding                                   |
+| AI fails to return structured recommendations      | Error shown in the "For You" section; rest of menu unaffected                            |
 
 ---
 
