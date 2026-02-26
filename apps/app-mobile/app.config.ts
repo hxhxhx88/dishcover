@@ -47,7 +47,7 @@ export default function config({ config: defineConfig }: ConfigContext): ExpoCon
       eas: {
         // `EAS_BUILD_PROJECT_ID` is a build-in environment variable of EAS.
         // - https://docs.expo.dev/eas/environment-variables/usage/#built-in-environment-variables
-        projectId: process.env.EAS_BUILD_PROJECT_ID,
+        projectId: '5d7b8715-ea18-42ac-9bf2-e277ca793ea1',
       },
     },
   }
