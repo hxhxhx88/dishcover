@@ -15,6 +15,7 @@ _As a user who just scanned a 60-item Spanish menu, I want to browse it by secti
 ## Acceptance Criteria
 
 ### Layout
+
 - Menu items are grouped by detected section (Starters, Mains, Desserts, Drinks, etc.).
 - Sections are displayed as collapsible groups with a header showing the section name and item count.
 - Each item card shows:
@@ -25,21 +26,25 @@ _As a user who just scanned a 60-item Spanish menu, I want to browse it by secti
   - Recommendation badge (when recommendations are active)
 
 ### Search
+
 - A search bar is persistently visible at the top of the menu.
 - Search filters items in real-time by translated name, original name, or description.
 - When active, section grouping is preserved for matched items; empty sections are hidden.
 - Clearing the search restores the full menu.
 
 ### Empty and error states
+
 - If a section has no items after search filtering, it is hidden.
 - If the digitized menu has no detected sections, all items appear under a single "All Items" group.
 - If the menu payload is empty (no items extracted), an empty state is shown with a re-scan option.
 
 ### Performance
+
 - Menus with up to 200 items must render without jank or delay.
 - Section collapse/expand is instant.
 
 ### Navigation
+
 - From the menu screen, user can navigate to:
   - Preference input for personalized recommendations
   - Beverage pairing for a selected item (when a drinks section is detected)
@@ -49,14 +54,14 @@ _As a user who just scanned a 60-item Spanish menu, I want to browse it by secti
 
 ## Edge Cases
 
-| Scenario | Expected behavior |
-|---|---|
-| Menu with 1 section only | Section header still shown; collapsible but starts expanded |
-| Very long item descriptions | Description truncated at ~3 lines with "read more" expansion |
-| Missing price | Price field hidden (not shown as blank) |
-| Missing description | Description field hidden |
-| Search with no results | "No items match your search" placeholder shown |
-| Section names in a language other than device language | Translated as part of the digitization output |
+| Scenario                                               | Expected behavior                                            |
+| ------------------------------------------------------ | ------------------------------------------------------------ |
+| Menu with 1 section only                               | Section header still shown; collapsible but starts expanded  |
+| Very long item descriptions                            | Description truncated at ~3 lines with "read more" expansion |
+| Missing price                                          | Price field hidden (not shown as blank)                      |
+| Missing description                                    | Description field hidden                                     |
+| Search with no results                                 | "No items match your search" placeholder shown               |
+| Section names in a language other than device language | Translated as part of the digitization output                |
 
 ---
 

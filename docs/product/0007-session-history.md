@@ -15,11 +15,13 @@ _As someone who liked a dish last week at a restaurant I'm revisiting, I want to
 ## Acceptance Criteria
 
 ### Auto-save
+
 - Every successfully digitized session is automatically saved to local storage immediately after processing completes.
 - No user action is required to save.
 - Saving must not block or delay the transition to the menu display; the save happens in the background.
 
 ### History list
+
 - A history screen is accessible from the main navigation.
 - Sessions are listed in reverse chronological order (most recent first).
 - Each entry shows:
@@ -28,20 +30,24 @@ _As someone who liked a dish last week at a restaurant I'm revisiting, I want to
   - Thumbnail of the first captured page
 
 ### Reopen a session
+
 - Tapping a history entry opens the full digitized menu in the standard menu display view.
 - The reopened session is read-only; running recommendations or beverage pairing is still permitted using the stored menu data — no re-scan required.
 
 ### Deletion
+
 - Each entry has a delete action (swipe-to-delete or contextual menu).
 - Deletion requires a single confirmation.
 - Deleted sessions are immediately removed from the list and from storage.
 
 ### Capacity
+
 - Maximum 20 sessions stored on-device.
 - When the 21st session is saved, the oldest session is automatically removed.
 - The capacity limit is transparent to the user (documented in the app; no mid-session warnings).
 
 ### Persistence
+
 - History survives app restarts.
 - History is cleared when the user clears app data or reinstalls (expected behavior; no backup in MVP).
 
@@ -49,14 +55,14 @@ _As someone who liked a dish last week at a restaurant I'm revisiting, I want to
 
 ## Edge Cases
 
-| Scenario | Expected behavior |
-|---|---|
-| Digitization fails | Session is not saved |
-| User closes app during save | Session save is atomic; partial saves are discarded on next launch |
-| Device storage full | Save fails gracefully; user sees a non-blocking warning; oldest session may be pruned to free space |
-| Restaurant name not detectable | Fallback label used; no error |
-| User reinstalls app | History lost; this is expected and documented |
-| Two scans at the same restaurant | Saved as two separate entries; no deduplication |
+| Scenario                         | Expected behavior                                                                                   |
+| -------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Digitization fails               | Session is not saved                                                                                |
+| User closes app during save      | Session save is atomic; partial saves are discarded on next launch                                  |
+| Device storage full              | Save fails gracefully; user sees a non-blocking warning; oldest session may be pruned to free space |
+| Restaurant name not detectable   | Fallback label used; no error                                                                       |
+| User reinstalls app              | History lost; this is expected and documented                                                       |
+| Two scans at the same restaurant | Saved as two separate entries; no deduplication                                                     |
 
 ---
 

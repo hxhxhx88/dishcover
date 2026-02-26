@@ -13,62 +13,14 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-msgid "{privateCode} is your {APP_NAME} sign-in code"
-msgstr "{privateCode} 是你的 {APP_NAME} 登录验证码"
-
-msgid "A new code has been sent to {email}."
-msgstr "一个新的验证码已经发送至邮箱 {email}。"
-
-msgid "By continuing, you agree to our <0><1>Terms of service</1></0> and <2><3>Privacy policy</3></2>."
-msgstr "继续即表示你同意我们的<0><1>服务条款</1></0>与<2><3>隐私协议</3></2>。"
-
-msgid "Continue"
-msgstr "继续"
-
-msgid "Did not receive the code?"
-msgstr "没有收到验证码？"
-
-msgid "Email"
-msgstr "邮箱"
-
-msgid "Enter your email"
-msgstr "请输入你的邮箱"
-
 msgid "Hello"
 msgstr "你好"
 
 msgid "No internet connection."
 msgstr "没有网络连接。"
 
-msgid "OTP verification"
-msgstr "验证码"
-
-msgid "Please enter a valid email."
-msgstr "请输入正确的电子邮箱。"
-
-msgid "Please enter your email."
-msgstr "请输入你的电子邮箱。"
-
-msgid "Resend code"
-msgstr "重新发送"
-
-msgid "Session expired. Please log in again."
-msgstr "登录已过期，请重新登录。"
-
-msgid "Sign in"
-msgstr "登录"
-
-msgid "Sign out"
-msgstr "注销"
-
 msgid "Something is wrong. Please try again later."
 msgstr "发生了未知错误。请稍后再试。"
-
-msgid "The code is incorrect or expired."
-msgstr "验证码错误或已过期。"
-
-msgid "This code will only be valid for the next {expireHours} hours."
-msgstr "该验证码将在 {expireHours} 小时后失效。"
 
 msgid "This version of the app is outdated. Please update to continue using the app with the latest features."
 msgstr "该版本的应用已过期。请更新后继续使用最新的功能。"
@@ -78,12 +30,3 @@ msgstr "立即更新"
 
 msgid "Update required"
 msgstr "需要更新"
-
-msgid "We sent a {digitsCount}-digit code to your email"
-msgstr "我们发送了一个 {digitsCount} 位验证码到你的电子邮箱。"
-
-msgid "Welcome!"
-msgstr "欢迎！"
-
-msgid "Your {APP_NAME} sign-in code"
-msgstr "你的 {APP_NAME} 登录验证码"

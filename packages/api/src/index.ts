@@ -1,9 +1,9 @@
 import type { hc } from 'hono/client'
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { versionMiddleware } from '@repo/api/middlewares/version'
+import { authMiddleware } from './middlewares/auth'
 import { dbMiddleware } from './middlewares/db'
 import { i18nMiddleware } from './middlewares/i18n'
-import { authMiddleware } from './middlewares/auth'
 import { apiConfig } from './routes/config'
 
 const openApi = new OpenAPIHono()
