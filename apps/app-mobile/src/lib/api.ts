@@ -25,7 +25,6 @@ export function useGlobalApiHeaders(): Record<string, string> {
     i18n: { locale },
   } = useLingui()
 
-  const accessToken = useAppStore(s => s.values.accessToken)
   const databaseUrl = useAppStore(s => s.values.databaseUrl)
   const extraApiHeaders = useAppStore(s => s.values.apiHeaders)
 
@@ -33,7 +32,6 @@ export function useGlobalApiHeaders(): Record<string, string> {
 
   return {
     [apiHeaders.acceptLanguage]: locale,
-    [apiHeaders.accessToken]: accessToken ?? '',
     [apiHeaders.version]: Application.nativeApplicationVersion ?? '',
     [apiHeaders.timeZone]: timeZone ?? '',
     [apiHeaders.database]: databaseUrl ?? '',

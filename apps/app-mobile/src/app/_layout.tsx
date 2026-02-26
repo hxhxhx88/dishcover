@@ -26,7 +26,7 @@ export default function Layout(): JSX.Element {
                 <StatusBar style="auto" />
                 <AppConfig />
                 <View className={cn('flex-1', theme === 'dark' ? 'dark' : '')}>
-                  <Render />
+                  <Stack />
                 </View>
                 {/* The `Toaster` must be at the very bottom of the tree */}
                 <Toaster richColors closeButton position="top-center" />
@@ -36,13 +36,5 @@ export default function Layout(): JSX.Element {
         </KeyboardProvider>
       </ThemeProvider>
     </I18nProvider>
-  )
-}
-
-function Render(): JSX.Element {
-  return (
-    <Stack>
-      <Stack.Screen name="auth" options={{ presentation: 'modal', headerShown: false }} />
-    </Stack>
   )
 }
