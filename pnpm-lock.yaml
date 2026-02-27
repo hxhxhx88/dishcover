@@ -160,8 +160,8 @@ importers:
         specifier: ~7.0.8
         version: 7.0.8(expo@54.0.33)
       expo-camera:
-        specifier: ^55.0.9
-        version: 55.0.9(@types/emscripten@1.41.5)(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+        specifier: ^17.0.10
+        version: 17.0.10(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       expo-constants:
         specifier: ~18.0.13
         version: 18.0.13(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))
@@ -169,11 +169,11 @@ importers:
         specifier: ~6.0.20
         version: 6.0.20(expo@54.0.33)
       expo-image-manipulator:
-        specifier: ^55.0.9
-        version: 55.0.9(expo@54.0.33)
+        specifier: ^14.0.8
+        version: 14.0.8(expo@54.0.33)
       expo-image-picker:
-        specifier: ^55.0.9
-        version: 55.0.9(expo@54.0.33)
+        specifier: ^17.0.10
+        version: 17.0.10(expo@54.0.33)
       expo-linking:
         specifier: ~8.0.11
         version: 8.0.11(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
@@ -3804,9 +3804,6 @@ packages:
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
-  '@types/emscripten@1.41.5':
-    resolution: {integrity: sha512-cMQm7pxu6BxtHyqJ7mQZ2kXWV5SLmugybFdHCBbJ5eHzOo6VhBckEgAT3//rP5FwPHNPeEiq4SmQ5ucBwsOo4Q==}
-
   '@types/eslint-scope@3.7.7':
     resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
 
@@ -4515,9 +4512,6 @@ packages:
   balanced-match@4.0.2:
     resolution: {integrity: sha512-x0K50QvKQ97fdEz2kPehIerj+YTeptKF9hyYkKf6egnwmMWAkADiO0QCzSp0R5xN8FTZgYaBfSaue46Ej62nMg==}
     engines: {node: 20 || >=22}
-
-  barcode-detector@3.1.0:
-    resolution: {integrity: sha512-aQjGxrgsb/WTlw6pHZwFRO6NhFMhwHGEkd0pzV25fBn8dnRA1PA1G7bLeAzvSea646S/96nW5W3jD8wezQZ1vQ==}
 
   bare-events@2.8.2:
     resolution: {integrity: sha512-riJjyv1/mHLIPX4RwiK+oW9/4c3TEUeORHKefKAKnZ5kyslbN+HXowtbaVEqt4IMUB7OXlfixcs6gsFeo/jhiQ==}
@@ -5806,8 +5800,8 @@ packages:
       react: '*'
       react-native: '*'
 
-  expo-camera@55.0.9:
-    resolution: {integrity: sha512-ywjmZChGPqyIginN9K1lEJCSTB6M4the37m56tAcvYs3cu0DAUAlTl4n2MY6S7kGdm3iEi0cGmlDpHFyh7rmwg==}
+  expo-camera@17.0.10:
+    resolution: {integrity: sha512-w1RBw83mAGVk4BPPwNrCZyFop0VLiVSRE3c2V9onWbdFwonpRhzmB4drygG8YOUTl1H3wQvALJHyMPTbgsK1Jg==}
     peerDependencies:
       expo: '*'
       react: '*'
@@ -5856,18 +5850,18 @@ packages:
       react: '*'
       react-native: '*'
 
-  expo-image-loader@55.0.0:
-    resolution: {integrity: sha512-NOjp56wDrfuA5aiNAybBIjqIn1IxKeGJ8CECWZncQ/GzjZfyTYAHTCyeApYkdKkMBLHINzI4BbTGSlbCa0fXXQ==}
+  expo-image-loader@6.0.0:
+    resolution: {integrity: sha512-nKs/xnOGw6ACb4g26xceBD57FKLFkSwEUTDXEDF3Gtcu3MqF3ZIYd3YM+sSb1/z9AKV1dYT7rMSGVNgsveXLIQ==}
     peerDependencies:
       expo: '*'
 
-  expo-image-manipulator@55.0.9:
-    resolution: {integrity: sha512-hEponYwRHwYlmYn2KTVr57U6i7dJ4NI6gYUT6LwxxLFspiev+ntlXL0e6M7qT0VIHMkLPtBcvP/z3+vaJCNgeQ==}
+  expo-image-manipulator@14.0.8:
+    resolution: {integrity: sha512-sXsXjm7rIxLWZe0j2A41J/Ph53PpFJRdyzJ3EQ/qetxLUvS2m3K1sP5xy37px43qCf0l79N/i6XgFgenFV36/Q==}
     peerDependencies:
       expo: '*'
 
-  expo-image-picker@55.0.9:
-    resolution: {integrity: sha512-e82tLpbg5U2qFdtDQLIcISMNhIr+a4Nt/ZfM+nC6X7qaGjzeYAuzvcb3xUe80Ix1H3D64b/tiA6a7KjQ48cfFA==}
+  expo-image-picker@17.0.10:
+    resolution: {integrity: sha512-a2xrowp2trmvXyUWgX3O6Q2rZaa2C59AqivKI7+bm+wLvMfTEbZgldLX4rEJJhM8xtmEDTNU+lzjtObwzBRGaw==}
     peerDependencies:
       expo: '*'
 
@@ -9973,11 +9967,6 @@ packages:
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  zxing-wasm@3.0.0:
-    resolution: {integrity: sha512-s7ASCPKX+QnH7Y83f4Byxmq/vDzYW7B9m6jMP5S30JGfN2A6WAUn6P3vcBmNguDhPLE6ny2fjTooQVyKBXI1qA==}
-    peerDependencies:
-      '@types/emscripten': '>=1.39.6'
-
 snapshots:
 
   '@0no-co/graphql.web@1.2.0(graphql@16.12.0)':
@@ -13809,8 +13798,6 @@ snapshots:
     dependencies:
       '@types/ms': 2.1.0
 
-  '@types/emscripten@1.41.5': {}
-
   '@types/eslint-scope@3.7.7':
     dependencies:
       '@types/eslint': 9.6.1
@@ -14986,12 +14973,6 @@ snapshots:
   balanced-match@4.0.2:
     dependencies:
       jackspeak: 4.2.3
-
-  barcode-detector@3.1.0(@types/emscripten@1.41.5):
-    dependencies:
-      zxing-wasm: 3.0.0(@types/emscripten@1.41.5)
-    transitivePeerDependencies:
-      - '@types/emscripten'
 
   bare-events@2.8.2: {}
 
@@ -16442,14 +16423,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  expo-camera@55.0.9(@types/emscripten@1.41.5)(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0):
+  expo-camera@17.0.10(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0):
     dependencies:
-      barcode-detector: 3.1.0(@types/emscripten@1.41.5)
       expo: 54.0.33(@babel/core@7.29.0)(@expo/metro-runtime@6.1.2)(expo-router@6.0.23)(graphql@16.12.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      invariant: 2.2.4
       react: 19.1.0
       react-native: 0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0)
-    transitivePeerDependencies:
-      - '@types/emscripten'
 
   expo-constants@18.0.13(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0)):
     dependencies:
@@ -16501,19 +16480,19 @@ snapshots:
       react: 19.1.0
       react-native: 0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0)
 
-  expo-image-loader@55.0.0(expo@54.0.33):
+  expo-image-loader@6.0.0(expo@54.0.33):
     dependencies:
       expo: 54.0.33(@babel/core@7.29.0)(@expo/metro-runtime@6.1.2)(expo-router@6.0.23)(graphql@16.12.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
 
-  expo-image-manipulator@55.0.9(expo@54.0.33):
+  expo-image-manipulator@14.0.8(expo@54.0.33):
     dependencies:
       expo: 54.0.33(@babel/core@7.29.0)(@expo/metro-runtime@6.1.2)(expo-router@6.0.23)(graphql@16.12.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
-      expo-image-loader: 55.0.0(expo@54.0.33)
+      expo-image-loader: 6.0.0(expo@54.0.33)
 
-  expo-image-picker@55.0.9(expo@54.0.33):
+  expo-image-picker@17.0.10(expo@54.0.33):
     dependencies:
       expo: 54.0.33(@babel/core@7.29.0)(@expo/metro-runtime@6.1.2)(expo-router@6.0.23)(graphql@16.12.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
-      expo-image-loader: 55.0.0(expo@54.0.33)
+      expo-image-loader: 6.0.0(expo@54.0.33)
 
   expo-json-utils@0.15.0: {}
 
@@ -21307,8 +21286,3 @@ snapshots:
       use-sync-external-store: 1.6.0(react@19.2.4)
 
   zwitch@2.0.4: {}
-
-  zxing-wasm@3.0.0(@types/emscripten@1.41.5):
-    dependencies:
-      '@types/emscripten': 1.41.5
-      type-fest: 5.4.4
